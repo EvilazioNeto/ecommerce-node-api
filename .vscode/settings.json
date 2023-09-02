@@ -1,0 +1,7 @@
+{
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.executorMap": {
+        "typescript": "npm run dev:console",
+
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ecommerce-node-api",
+  "version": "1.0.0",
+  "description": "Comércio eletrônico B2C - Varejo",
+  "main": "index.js",
+  "scripts": {
+    "dev:console":"node -r tsconfig-paths/register -r sucrase/register src/index.ts",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [
+    "ecommerce",
+    "varejo",
+    "B2C",
+    "eletrônico"
+  ],
+  "author": "Evilazio Neto",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "@types/node": "^20.2.5",
+    "@vitest/ui": "^0.33.0",
+    "sucrase": "^3.32.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3",
+    "vitest": "^0.33.0"
+  }
+}
