@@ -11,23 +11,36 @@ datasource db {
 }
 
 model Categoria {
-  id               String @id @db.Uuid
-  nome             String @db.VarChar(50)
+  id               String   @id @db.Uuid
+  nome             String   @db.VarChar(50)
   dataCriacao      DateTime @default(now()) @map("data_criacao")
   dataAtualizacao  DateTime @updatedAt @map("data_atualizacao")
-  produtos         Produto[]
+  produtos         CategoriasProdutos[]
 
   @@map("categorias")
 }
 
+model CategoriasProdutos {
+  produto           Produto   @relation(fields: [produtoId], references: [id])
+  produtoId         String    @db.Uuid @map("produto_id")
+  categoria         Categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId       String    @db.Uuid @map("categoria_id")
+  dataCriacao       DateTime  @default(now()) @map("data_criacao")
+  dataAtualizacao   DateTime  @updatedAt @map("data_atualizaco")
+
+  @@id([produtoId, categoriaId])
+  @@map("produtos_categorias")
+}
+
+
 model Produto {
-  id               String @id @db.Uuid
-  nome             String @db.VarChar(50)
-  descricao        String @db.VarChar(200)
+  id               String   @id @db.Uuid
+  nome             String   @db.VarChar(50)
+  descricao        String   @db.VarChar(200)
   valor            Int
   dataCriacao      DateTime @default(now()) @map("data_criacao")
   dataAtualizacao  DateTime @updatedAt @map("data_atualizacao")
-  categorias       Categoria[]
+  categorias       CategoriasProdutos[]
 
   @@map("produtos")
 }
