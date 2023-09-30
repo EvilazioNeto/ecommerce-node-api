@@ -1,27 +1,46 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
+import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/categoria.prisma.repository";
 import { PrismaClient } from "@prisma/client";
 import { DomainException } from "@shared/domain/domain.exception";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    log: ['query', 'info'],
+    errorFormat: 'pretty'
+});
 
 async function main() {
-    let categoria: Categoria;
-    categoria = Categoria.criar({nome: 'mesa'})
-
-    await prisma.categoria.create({
-        data: {
-            id: categoria.id,
-            nome: categoria.nome
+    
+    prisma.$connect().then(
+        async () =>{
+            console.log('Postgres Conectado')
         }
-    })
+    );
 
-    const categoriaRecuperada = await prisma.categoria.update({
-        where: {id: "3688abfe-200e-458c-b959-ac66baea8176"},
-        data: {nome: "banho"}
-    })
+    const categoriaRepo = new CategoriaPrismaRepository(prisma)
 
-    const ListaCategorias = await prisma.categoria.findMany();
-    console.log(ListaCategorias);  
+    //const categoriaRecuperada = await categoriaRepo.recuperarPorUuid("3688abfe-200e-458c-b959-ac66baea8176")
+    //console.log(categoriaRecuperada)
+
+    // const categoria: Categoria = Categoria.criar({
+    //     nome: 'Banho'
+    // })
+
+    // const categoriaInserida = await categoriaRepo.inserir(categoria);
+    // console.log(categoriaInserida)
+
+    //const categoria = await categoriaRepo.recuperarTodos()
+    //console.log(categoria)
+
+    // const categoria = Categoria.recuperar({
+    //     id: "fed0d258-fe72-4130-9404-a85e4691fa7d",
+    //     nome: "Mesa e Cozinha"
+    // })
+    // const categoriaAtualizada = await categoriaRepo.atualizar(categoria.id,categoria);
+    // console.log(categoriaAtualizada)
+
+    const categopriaDeletada = await categoriaRepo.deletar("adcf0d3b-2e4f-4371-b89f-2618ce70b31d")
+    console.log(categopriaDeletada)
+
 }
 
 main()
@@ -40,3 +59,4 @@ main()
        await prisma.$disconnect()
        process.exit(1)
    })
+   
