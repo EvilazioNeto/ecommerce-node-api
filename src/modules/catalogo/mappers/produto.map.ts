@@ -11,7 +11,10 @@ class ProdutoMap {
             nome: produto.nome,
             descricao: produto.descricao,
             valor: produto.valor,
-            categorias: produto.categorias
+            categorias: produto.categorias,
+            dataCriacao: produto.dataCriacao,
+            dataAtualizacao: produto.dataAtualizacao,
+            dataExclusao: produto.dataExclusao
         }
     }
 
@@ -19,22 +22,23 @@ class ProdutoMap {
         return Produto.recuperar(produto)
     }
 
-    public static fromPrismaModelToDomain(produto: ProdutoComCategoriaPrisma): Produto{
+    public static fromPrismaModelToDomain(produtoPrisma: ProdutoComCategoriaPrisma): Produto{
         const categorias: Array<Categoria> = [];
 
-        produto.categorias.map((categoria)=>{
+        produtoPrisma.categorias.map((categoria)=>{
             categorias.push(CategoriaMap.fromPrismaModelToDomain(categoria.categoria))
         })
 
-        return this.toDomain(
-            {
-                id: produto.id,
-                nome: produto.nome,
-                descricao: produto.descricao,
-                valor: produto.valor,
-                categorias: categorias
-            }
-        )
+        return this.toDomain({
+                id: produtoPrisma.id,
+                nome: produtoPrisma.nome,
+                descricao: produtoPrisma.descricao,
+                valor: produtoPrisma.valor,
+                categorias: categorias,
+                dataCriacao: produtoPrisma.dataCriacao,
+                dataAtualizacao: produtoPrisma.dataAtualizacao,
+                dataExclusao: produtoPrisma.dataExclusao
+            })
     }
 }
 
