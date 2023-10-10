@@ -1,3 +1,4 @@
+import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
 import { Produto } from "@modules/catalogo/domain/produto/produto.entity";
 import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/categoria.prisma.repository";
 import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
@@ -24,7 +25,7 @@ async function main() {
     // console.log(categoriaRecuperada)
 
     // const categoria: Categoria = Categoria.criar({
-    //      nome: 'sala'
+    //      nome: 'Esporte'
     // })
 
     // const categoriaInserida = await categoriaRepo.inserir(categoria);
@@ -58,13 +59,13 @@ async function main() {
     // console.log(produtoRecuperado)
 
     // const categoria01: Categoria = Categoria.recuperar({
-    //     id: "3688abfe-200e-458c-b959-ac66baea8176",
-    //     nome: 'banho'
+    //     id: "33616a36-1099-40cd-b57e-bc76e0631240",
+    //     nome: 'Esporte'
     // });    
  
     // const produto: Produto = Produto.criar({
-    //     nome: 'Shampoo',
-    //     descricao: 'Shampoo do CR7',
+    //     nome: 'Bola de basquete',
+    //     descricao: 'Bola de Basquete',
     //     valor: 40,
     //     categorias: [categoria01]
     // })
