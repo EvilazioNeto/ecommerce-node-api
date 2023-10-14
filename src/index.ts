@@ -1,14 +1,12 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
 import { Produto } from "@modules/catalogo/domain/produto/produto.entity";
+import { StatusProduto } from "@modules/catalogo/domain/produto/produto.types";
 import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/categoria.prisma.repository";
 import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
-import { PrismaClient } from "@prisma/client";
 import { DomainException } from "@shared/domain/domain.exception";
+import { prisma } from "@main/infra/database/orm/prisma/client";
 
-const prisma = new PrismaClient({
-    log: ['query', 'info'],
-    errorFormat: 'pretty'
-});
+
 
 async function main() {
     
@@ -34,9 +32,8 @@ async function main() {
     // const categoria = await categoriaRepo.recuperarTodos()
     // console.log(categoria)
 
-    // const todaCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos()
-    // console.log(todaCategorias)
-
+    const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos()
+    console.log(todasCategorias)
 
     // const categoria = Categoria.recuperar({
     //     id: "fed0d258-fe72-4130-9404-a85e4691fa7d",
@@ -79,6 +76,24 @@ async function main() {
     // const atualizouProduto: boolean = await produtoRepo.atualizar(produto.id,produto);
 
     // console.log(atualizouProduto)
+
+    const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("f23d489c-9cf9-4e8b-aba2-a973548565b6")
+    // const categoriaRecuperada: Categoria | null = await categoriaRepo.recuperarPorUuid("e0756955-be34-4934-baba-aff22b5769a7")
+
+    // if(produtoRecuperado && categoriaRecuperada){
+    //     if(produtoRecuperado.adicionarCategoria(categoriaRecuperada)){
+    //         await produtoRepo.adicionarCategoria(produtoRecuperado, categoriaRecuperada)
+    //     }
+
+        // if(produtoRecuperado.removerCategoria(categoriaRecuperada)){
+        //     await produtoRepo.removerCategoria(produtoRecuperado, categoriaRecuperada)
+        // }
+    // }
+
+    if(produtoRecuperado){
+        const alterarStatusProduto: boolean = await produtoRepo.alterarStatus(produtoRecuperado, StatusProduto.DESATIVO)
+        console.log(alterarStatusProduto)
+    }
 
 }
 

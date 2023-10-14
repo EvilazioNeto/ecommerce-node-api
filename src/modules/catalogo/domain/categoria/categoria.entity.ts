@@ -1,7 +1,7 @@
 import { ICategoria, CriarCategoriaProps, RecuperarCategoriaProps } from "./categoria.types";
 import { NomeCategoriaNuloOuIndefinido, NomeCategoriaTamanhoMinimoInvalido, NomeCategoriaTamanhoMaximoInvalido } from "./categoria.exception";
 import { Entity } from "@shared/domain/entity";
-import { CategoriaMap } from "@modules/catalogo/mappers/categoria.map";
+import { CategoriaMap } from "@modules/catalogo/infra/mappers/categoria.map";
 
 class Categoria extends Entity<ICategoria> implements ICategoria {
 
@@ -9,18 +9,22 @@ class Categoria extends Entity<ICategoria> implements ICategoria {
     private _dataCriacao?: Date | undefined;
     private _dataAtualizacao?: Date | undefined;
 
+    public static readonly TAMANHO_MINIMO_NOME = 3
+    public static readonly TAMANHO_MAXIMO_NOME = 50
+
+
     public get dataCriacao(): Date | undefined {
         return this._dataCriacao;
     }
-    private set dataCriacao(value: Date | undefined) {
-        this._dataCriacao = value;
+    private set dataCriacao(dataCriacao: Date | undefined) {
+        this._dataCriacao = dataCriacao;
     }
 
     public get dataAtualizacao(): Date | undefined {
         return this._dataAtualizacao;
     }
-    private set dataAtualizacao(value: Date | undefined) {
-        this._dataAtualizacao = value;
+    private set dataAtualizacao(dataAtualizacao: Date | undefined) {
+        this._dataAtualizacao = dataAtualizacao;
     }
 
 
@@ -28,20 +32,21 @@ class Categoria extends Entity<ICategoria> implements ICategoria {
         return this._nome;
     }
 
-    private set nome(value: string) {
-        if (value === null || value === undefined) {
+    private set nome(nome: string) {
+        const tamanhoNome = nome.trim().length
+        if (nome === null || nome === undefined) {
             throw new NomeCategoriaNuloOuIndefinido();
         }
 
-        if (value.trim().length < 3) {
+        if (tamanhoNome < Categoria.TAMANHO_MINIMO_NOME) {
             throw new NomeCategoriaTamanhoMinimoInvalido();
         }
 
-        if (value.trim().length > 50) {
+        if (tamanhoNome > Categoria.TAMANHO_MAXIMO_NOME) {
             throw new NomeCategoriaTamanhoMaximoInvalido();
         }
 
-        this._nome = value;
+        this._nome = nome;
     }
 
     private constructor(categoria:ICategoria){

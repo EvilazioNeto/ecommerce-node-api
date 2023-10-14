@@ -1,15 +1,21 @@
 import { IDatasControle, KeysDatasControles } from "@shared/domain/datas.type";
 import { Categoria } from "../categoria/categoria.entity";
 
-interface IProduto extends IDatasControle{
-    id?: string,
-    nome: string,
-    descricao: string,
-    valor: number,
-    categorias: Array<Categoria>
+enum StatusProduto {
+    ATIVO = "ATIVO",
+    DESATIVO = "DESATIVO"
 }
 
-type CriarProdutosProps = Omit<IProduto, "id" | KeysDatasControles>
+interface IProduto extends IDatasControle{
+    id?: string;
+    nome: string;
+    descricao: string;
+    valor: number;
+    categorias: Array<Categoria>;
+    status?: StatusProduto;
+}
+
+type CriarProdutosProps = Omit<IProduto, "id" | KeysDatasControles | "status">
 type RecuperarProdutoProps = IProduto & {
     id: NonNullable<IProduto['id']>
 };
@@ -17,5 +23,6 @@ type RecuperarProdutoProps = IProduto & {
 export{
     IProduto,
     CriarProdutosProps,
-    RecuperarProdutoProps
+    RecuperarProdutoProps,
+    StatusProduto
 }
