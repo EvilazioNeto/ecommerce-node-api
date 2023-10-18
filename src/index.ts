@@ -5,6 +5,8 @@ import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/cate
 import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
 import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
+import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
+import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
 
 
 
@@ -15,9 +17,6 @@ async function main() {
             console.log('Postgres Conectado')
         }
     );
-
-    const categoriaRepo = new CategoriaPrismaRepository(prisma)
-    const produtoRepo = new ProdutoPrismaRepository(prisma)
 
     // const categoriaRecuperada = await categoriaRepo.recuperarPorUuid("3688abfe-200e-458c-b959-ac66baea8176")
     // console.log(categoriaRecuperada)
@@ -32,8 +31,8 @@ async function main() {
     // const categoria = await categoriaRepo.recuperarTodos()
     // console.log(categoria)
 
-    const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos()
-    console.log(todasCategorias)
+    // const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos()
+    // console.log(todasCategorias)
 
     // const categoria = Categoria.recuperar({
     //     id: "fed0d258-fe72-4130-9404-a85e4691fa7d",
@@ -77,7 +76,7 @@ async function main() {
 
     // console.log(atualizouProduto)
 
-    const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("f23d489c-9cf9-4e8b-aba2-a973548565b6")
+    //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("f23d489c-9cf9-4e8b-aba2-a973548565b6")
     // const categoriaRecuperada: Categoria | null = await categoriaRepo.recuperarPorUuid("e0756955-be34-4934-baba-aff22b5769a7")
 
     // if(produtoRecuperado && categoriaRecuperada){
@@ -90,10 +89,10 @@ async function main() {
         // }
     // }
 
-    if(produtoRecuperado){
-        const alterarStatusProduto: boolean = await produtoRepo.alterarStatus(produtoRecuperado, StatusProduto.DESATIVO)
-        console.log(alterarStatusProduto)
-    }
+    // if(produtoRecuperado){
+    //     const alterarStatusProduto: boolean = await produtoRepo.alterarStatus(produtoRecuperado, StatusProduto.DESATIVO)
+    //     console.log(alterarStatusProduto)
+    // }
 
 }
 

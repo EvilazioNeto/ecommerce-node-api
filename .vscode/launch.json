@@ -11,10 +11,17 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program":  "${workspaceFolder}\\src\\index.ts",
+            "program": "${workspaceFolder}\\src\\index.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/dist/**/*.js"
+            ],
+            "runtimeArgs": [
+                "-r",
+                "tsconfig-paths/register",
+                "-r",
+                "sucrase/register",
+                "src"
             ]
         }
     ]

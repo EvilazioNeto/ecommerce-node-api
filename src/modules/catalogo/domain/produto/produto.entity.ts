@@ -3,6 +3,7 @@ import { Entity } from "@shared/domain/entity";
 import { Categoria } from "../categoria/categoria.entity";
 import { ProdutoExceptions } from "./produto.exception";
 import { CriarProdutosProps, IProduto, RecuperarProdutoProps, StatusProduto } from "./produto.types";
+import { RecuperarCategoriaProps } from "../categoria/categoria.types";
 
 class Produto extends Entity<IProduto> implements IProduto {
 
@@ -111,10 +112,10 @@ class Produto extends Entity<IProduto> implements IProduto {
         this.nome = produto.nome;
         this.descricao = produto.descricao;
         this.valor = produto.valor;
-        this.categorias = produto.categorias;
+        this.categorias = produto.categorias.map((categoria) => { return Categoria.recuperar(categoria as RecuperarCategoriaProps) });
         this.dataCriacao = produto.dataCriacao,
-            this.dataAtualizacao = produto.dataAtualizacao,
-            this.dataExclusao = produto.dataExclusao
+        this.dataAtualizacao = produto.dataAtualizacao,
+        this.dataExclusao = produto.dataExclusao
         this.status = produto.status;
     }
 

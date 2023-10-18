@@ -4,7 +4,7 @@ import { CategoriaMap } from "@modules/catalogo/infra/mappers/categoria.map";
 import { PrismaRepository } from "@shared/infra/database/prisma.repository";
 
 class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRepository<Categoria> {
-   
+
     async recuperarPorUuid(uuid: string): Promise<Categoria | null> {
         const categoriaRecuperada = await this._datasource.categoria.findUnique(
             {
@@ -29,8 +29,8 @@ class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRe
 
     async existe(uuid: string): Promise<boolean> {
         const categoriaExistente = await this.recuperarPorUuid(uuid);
-		if (categoriaExistente)  {return true;}
-		return false;
+        if (categoriaExistente) { return true; }
+        return false;
     }
 
     async inserir(categoria: Categoria): Promise<Categoria> {
@@ -48,11 +48,11 @@ class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRe
     async atualizar(uuid: string, categoria: Categoria): Promise<boolean> {
         const categoriaAtualizada = await this._datasource.categoria.update(
             {
-                where: {id : uuid},
+                where: { id: uuid },
                 data: CategoriaMap.toDTO(categoria)
             }
         );
-        if (categoriaAtualizada) {return true};
+        if (categoriaAtualizada) { return true };
         return false;
     }
 
@@ -61,10 +61,10 @@ class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRe
             {
                 where: {
                     id: uuid
-                }        
+                }
             }
         );
-        if (categoriaDeletada.id) {return true;}
+        if (categoriaDeletada.id) { return true; }
         return false;
     }
 }
