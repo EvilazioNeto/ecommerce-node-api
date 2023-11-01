@@ -198,8 +198,6 @@ describe('Repositório Prisma: Categoria', () => {
         });
 
     });
-
-
 });
 
 export { dataCriacaoCategoria, nomeCategoriaValido, dataAtualizacaoCategoria }

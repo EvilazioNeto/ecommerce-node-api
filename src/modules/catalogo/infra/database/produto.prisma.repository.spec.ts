@@ -19,7 +19,7 @@ let valorProdutoValido: number;
 let dataCriacaoproduto: Date;
 let dataAtualizacaoProduto: Date;
 let dataExclusao: Date;
-let statusProdutoValido: StatusProdutoPrisma
+let statusProdutoValido: StatusProdutoPrisma;
 
 describe('Repositorio Prisma: Produto', () => {
 
@@ -96,5 +96,4 @@ describe('Repositorio Prisma: Produto', () => {
             });
         });
     });
-
 })
