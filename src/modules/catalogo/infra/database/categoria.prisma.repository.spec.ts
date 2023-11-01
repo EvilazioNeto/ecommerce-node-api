@@ -51,7 +51,7 @@ describe('Repositório Prisma: Categoria', () => {
             expect(prismaMock.categoria.findUnique).toBeCalledWith({
                 where: {
                     id: categoria.id
-                }   
+                }
             });
 
         });
@@ -60,7 +60,7 @@ describe('Repositório Prisma: Categoria', () => {
 
     describe('Recuperar Todas as Categorias', () => {
 
-        test('Deve Recuperar Todas as Categorias Sem Execeção', async () => {
+        test('Deve Recuperar Todas as Categorias Sem exceção', async () => {
 
             const listaCategoriasPrisma = [{
                 id: UUIDValido,
@@ -201,3 +201,5 @@ describe('Repositório Prisma: Categoria', () => {
 
 
 });
+
+export { dataCriacaoCategoria, nomeCategoriaValido, dataAtualizacaoCategoria }
