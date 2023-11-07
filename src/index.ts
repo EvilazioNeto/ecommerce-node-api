@@ -7,6 +7,7 @@ import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
 import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
+import { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
 
 
 
@@ -93,6 +94,9 @@ async function main() {
     //     const alterarStatusProduto: boolean = await produtoRepo.alterarStatus(produtoRecuperado, StatusProduto.DESATIVO)
     //     console.log(alterarStatusProduto)
     // }
+
+    // console.log(await recuperarCategoriaPorIdUseCase.execute("33616a36-1099-40cd-b57e-bc76e0631240"))
+    console.log(await recuperarTodasCategoriasUseCase.execute());
 
 }
 

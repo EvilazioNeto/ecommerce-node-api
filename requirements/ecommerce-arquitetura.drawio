@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="aSWss9fgncpxhGeWPriy" name="Arquitetura em Camadas">
-        <mxGraphModel dx="721" dy="398" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="758" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -151,7 +151,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Arquitetura Hexagonal" id="wjivnZVUsACDeRUAyvuC">
-        <mxGraphModel dx="721" dy="398" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="523" dy="427" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="tzPjVgsUGmhRdQPGDlRc-0"/>
                 <mxCell id="tzPjVgsUGmhRdQPGDlRc-1" parent="tzPjVgsUGmhRdQPGDlRc-0"/>
@@ -242,7 +242,7 @@
                     <mxGeometry x="287.5" y="289" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="_s5H8p2Y_gwML5H9djnR-2" value="&lt;span style=&quot;font-size: 4px;&quot;&gt;&lt;font color=&quot;#ffffff&quot;&gt;Alto nível de abstração /&amp;nbsp; Políticas&lt;/font&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="tzPjVgsUGmhRdQPGDlRc-1" vertex="1">
-                    <mxGeometry x="299.5" y="335.5" width="200" height="30" as="geometry"/>
+                    <mxGeometry x="311" y="371" width="200" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="0flk8VAWVbYfpd_tYUp7-0" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;font-size: 3px;&quot;&gt;Baixo nível de&amp;nbsp; abstração&amp;nbsp; /&amp;nbsp; Orquestração / Detalhes&lt;/font&gt;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="tzPjVgsUGmhRdQPGDlRc-1" vertex="1">
                     <mxGeometry x="278.5" y="406" width="200" height="30" as="geometry"/>
@@ -295,7 +295,7 @@
                 <mxCell id="ailSluQYoId34OJ8lPSa-1" value="&lt;font style=&quot;font-size: 5px;&quot;&gt;Modules&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;sketch=0;strokeWidth=1;fontSize=10;fontColor=#000000;" parent="tzPjVgsUGmhRdQPGDlRc-1" vertex="1">
                     <mxGeometry x="425" y="240" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="ailSluQYoId34OJ8lPSa-2" value="Pollíticas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;sketch=0;strokeWidth=1;fontSize=5;fontColor=#000000;" parent="tzPjVgsUGmhRdQPGDlRc-1" vertex="1">
+                <mxCell id="ailSluQYoId34OJ8lPSa-2" value="Políticas" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;sketch=0;strokeWidth=1;fontSize=5;fontColor=#000000;" parent="tzPjVgsUGmhRdQPGDlRc-1" vertex="1">
                     <mxGeometry x="425.5" y="325" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
