@@ -7,7 +7,7 @@ import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
 import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
-import { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
+import { atualizarCategoriaUseCase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
 
 
 
@@ -43,8 +43,8 @@ async function main() {
     //   const categoria: Categoria = Categoria.criar({
     //     nome: "Mesa e Cozinha",
     //   })
-    //   const categoriaInserida = await categoriaRepo.inserir(categoria)
-    //   console.log(categoriaInserida)
+
+      //const categoriaInserida = await categoriaRepo.inserir(categoria)
 
     // const categoriaAtualizada = await categoriaRepo.atualizar(categoria.id,categoria);
     // console.log(categoriaAtualizada)
@@ -96,7 +96,26 @@ async function main() {
     // }
 
     // console.log(await recuperarCategoriaPorIdUseCase.execute("33616a36-1099-40cd-b57e-bc76e0631240"))
-    console.log(await recuperarTodasCategoriasUseCase.execute());
+
+
+    //USE CASE
+
+    //console.log(await recuperarTodasCategoriasUseCase.execute());
+
+    // console.log(await inserirCategoriaUseCase.execute({
+    //     nome: "Shorts",
+    // }));
+
+    // console.log(await atualizarCategoriaUseCase.execute({
+    //     id: "33616a36-1099-40cd-b57e-bc76e0631240",
+    //     nome: 'Esportes'  
+    // }))
+
+    // console.log(await deletarCategoriaUseCase.execute("83a7c1b8-e1c0-4a14-8512-baa33c98a95b"));
+
+    //USE CASE - Produto
+
+    console.log(await recuperarProdutoPorIdUseCase.execute("f23d489c-9cf9-4e8b-aba2-a973548565b6"));
 
 }
 
@@ -106,7 +125,7 @@ main()
     })
     .catch(async (error) => {
        if (error instanceof DomainException) {
-           console.log('Execeção de Dóminio');
+           console.log('Exceção de Dóminio');
            console.log(error.message);
        }
        else {

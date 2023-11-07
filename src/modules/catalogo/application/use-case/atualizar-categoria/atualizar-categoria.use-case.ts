@@ -1,28 +1,28 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
 import { ICategoriaRepository } from "@modules/catalogo/domain/categoria/categoria.repository.interface";
-import { ICategoria } from "@modules/catalogo/domain/categoria/categoria.types";
-import { CategoriaMap } from "@modules/catalogo/infra/mappers/categoria.map";
+import { RecuperarCategoriaProps } from "@modules/catalogo/domain/categoria/categoria.types";
 import { IUseCase } from "@shared/application/use-case.interface";
 import { CategoriaApplicationExceptions } from "../../exception/categoria.application.exception";
 
-class RecuperarCategoriaPorIdUseCase implements IUseCase<string, ICategoria>{
+class AtualizarCategoriaUseCase implements IUseCase<RecuperarCategoriaProps, boolean>{
     private _categoriaRepositorio: ICategoriaRepository<Categoria>
 
     constructor(repositorio: ICategoriaRepository<Categoria>){
         this._categoriaRepositorio = repositorio
     }
 
-    async execute(uuid: string): Promise<ICategoria> {
-        const existeCategoria: boolean = await this._categoriaRepositorio.existe(uuid)
-
+    async execute(categoriaProps: RecuperarCategoriaProps): Promise<boolean> {
+        const existeCategoria: boolean = await this._categoriaRepositorio.existe(categoriaProps.id)
         if(!existeCategoria){
             throw new CategoriaApplicationExceptions.CategoriaNaoEncontrada();
         }
 
-        const categoria = await this._categoriaRepositorio.recuperarPorUuid(uuid)
+        const categoria: Categoria = Categoria.recuperar(categoriaProps)
 
-        return CategoriaMap.toDTO(categoria as Categoria)
+        const atualizouCategoria: boolean = await this._categoriaRepositorio.atualizar(categoria.id, categoria);
+
+        return atualizouCategoria;
     }
 }
 
-export { RecuperarCategoriaPorIdUseCase };
+export { AtualizarCategoriaUseCase }
