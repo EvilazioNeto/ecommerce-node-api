@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="aSWss9fgncpxhGeWPriy" name="Arquitetura em Camadas">
-        <mxGraphModel dx="758" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="686" dy="619" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -28,11 +28,12 @@
                 <mxCell id="9" value="&lt;font color=&quot;#000000&quot;&gt;Camada de Aplicação&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=2;" parent="1" vertex="1">
                     <mxGeometry x="325" y="315" width="130" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" style="edgeStyle=none;rounded=1;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;fontColor=#000000;exitX=0.098;exitY=0.004;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="10" target="8" edge="1">
+                <mxCell id="42" style="edgeStyle=none;rounded=1;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;fontColor=#000000;exitX=0.233;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="12" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="260" y="340"/>
                         </Array>
+                        <mxPoint x="260" y="450" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="43" style="edgeStyle=none;rounded=1;html=1;entryX=0.623;entryY=1.059;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;fontColor=#000000;exitX=0.402;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
@@ -59,11 +60,12 @@
                 <mxCell id="34" value="&lt;div style=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;points=[[0,0,0,0,0],[0,0.26,0,0,0],[0,0.5,0,0,0],[0,0.74,0,0,0],[0,1,0,0,0],[0.05,0.88,0,0,0],[0.11,1,0,0,0],[0.25,0,0,0,0],[0.5,0,0,0,0],[0.75,0,0,0,0],[0.75,1,0,0,0],[1,0,0,0,0],[1,0.26,0,0,0],[1,0.5,0,0,0],[1,0.76,0,0,0],[1,1,0,0,0]];" parent="1" vertex="1">
                     <mxGeometry x="220" y="250" width="510" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;rounded=1;html=1;exitX=0.044;exitY=1.052;exitDx=0;exitDy=0;entryX=0;entryY=0.51;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;fontColor=#000000;exitPerimeter=0;entryPerimeter=0;" parent="1" source="34" target="6" edge="1">
+                <mxCell id="40" style="edgeStyle=none;rounded=1;html=1;exitX=0.044;exitY=1.052;exitDx=0;exitDy=0;dashed=1;strokeColor=#000000;fontColor=#000000;exitPerimeter=0;" parent="1" source="34" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="240" y="407"/>
+                            <mxPoint x="242" y="410"/>
                         </Array>
+                        <mxPoint x="320" y="410" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="35" value="Camada de apresentação" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" parent="1" vertex="1">
