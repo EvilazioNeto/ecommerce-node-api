@@ -28,7 +28,6 @@ describe('[REST] Rotas Express: Categoria', () => {
 
         test('Deve Retornar Status 200 e um Objeto do Tipo ICategoria no formato JSON', async () => {
             
-            //Dado (Given)
 			const categoriaInputDTO: ICategoria = {
                 id: "80830927-8c3e-4db9-9ddf-30ea191f139b",
                 nome: "Cama"
@@ -40,11 +39,9 @@ describe('[REST] Rotas Express: Categoria', () => {
 
             appMock.use('/api/v1/categorias/:id', recuperarCategoriaPorIdControllerMock.recuperar);
 
-            //Quando (When)
 			const response = await request(appMock)
                 .get('/api/v1/categorias/80830927-8c3e-4db9-9ddf-30ea191f139b')
 
-            //Então (Then
 			expect(response.status).toEqual(200);
             expect(response.headers["content-type"]).toMatch(/json/);
             expect(response.body).toEqual(categoriaInputDTO);
@@ -57,7 +54,6 @@ describe('[REST] Rotas Express: Categoria', () => {
 
         test('Deve Retornar Status 200 e um Objeto do Tipo ICategoria no formato JSON', async () => {
 
-            //Dado (Given)
             const categoriaInputDTO: CriarCategoriaProps = {
                 nome: "Cama"
             };
@@ -73,12 +69,10 @@ describe('[REST] Rotas Express: Categoria', () => {
 
             appMock.use('/api/v1/categorias', inserirCategoriaControllerMock.inserir); // Cast to any for mocking purposes
 
-			//Quando (When)
 			const response = await request(appMock)
                 .post('/api/v1/categorias')
                 .send(categoriaInputDTO)
 
-            //Então (Then
 			expect(response.status).toEqual(200);
             expect(response.headers["content-type"]).toMatch(/json/);
             expect(response.body).toEqual(categoriaOutputDTO);
