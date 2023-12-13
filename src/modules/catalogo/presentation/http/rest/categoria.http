@@ -15,7 +15,7 @@ POST http://{{host}}:{{port}}/{{apiversion}}/categorias
 Content-type: application/json
 
 {
-    "nome":"Sala de Estar"
+    "nome":"Eletrônicos"
 }
 
 ### Atualizar Categoria
@@ -28,4 +28,4 @@ Content-type: application/json
 }
 
 ### Deletar Categoria
-DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/fed0d258-fe72-4130-9404-a85e4691fa7d
+DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/a7e558d0-e0d0-4e90-bb50-0f350fbf7740
