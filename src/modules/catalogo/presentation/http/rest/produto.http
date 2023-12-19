@@ -1,0 +1,19 @@
+@host = localhost
+
+@port = 3000
+
+@apiversion = api/v1
+
+### Recuperar Todos Produtos
+GET http://{{host}}:{{port}}/{{apiversion}}/produtos
+
+### Inserir Um Produto
+POST http://{{host}}:{{port}}/{{apiversion}}/produtos
+Content-type: application/json
+
+{
+    "nome":"Bola de Futebol",
+    "descricao": "Uma bola para futebol de campo",
+    "valor": 120,
+    "categorias": ["33616a36-1099-40cd-b57e-bc76e0631240"]
+}

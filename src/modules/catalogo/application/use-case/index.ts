@@ -5,13 +5,15 @@ import { InserirCategoriaUseCase } from "./inserir-categoria/inserir-categoria.u
 import { AtualizarCategoriaUseCase } from "./atualizar-categoria/atualizar-categoria.use-case";
 import { DeletarCategoriaUseCase } from "./deletar-categoria/deletar-categoria.use-case";
 import { RecuperarProdutoPorIdUseCase } from "./recuperar-produto-por-id/recuperar-produto-por-id.use-case";
+import { RecuperarTodosProdutosUseCase } from "./recuperar-todos-produtos/recuperar-todos-produtos.use-case";
 
 const recuperarCategoriaPorIdUseCase = new RecuperarCategoriaPorIdUseCase(categoriaRepositorio);
 const recuperarTodasCategoriasUseCase = new RecuperarTodasCategoriasUseCase(categoriaRepositorio)
+const recuperarTodosProdutosUseCase = new RecuperarTodosProdutosUseCase(produtoRepositorio)
 const inserirCategoriaUseCase = new InserirCategoriaUseCase(categoriaRepositorio)
 const atualizarCategoriaUseCase = new AtualizarCategoriaUseCase(categoriaRepositorio)
 const deletarCategoriaUseCase = new DeletarCategoriaUseCase(categoriaRepositorio)
 
 const recuperarProdutoPorIdUseCase = new RecuperarProdutoPorIdUseCase(produtoRepositorio)
 
-export { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase, inserirCategoriaUseCase, atualizarCategoriaUseCase, deletarCategoriaUseCase, recuperarProdutoPorIdUseCase }
+export { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase, inserirCategoriaUseCase, atualizarCategoriaUseCase, deletarCategoriaUseCase, recuperarProdutoPorIdUseCase, recuperarTodosProdutosUseCase }
