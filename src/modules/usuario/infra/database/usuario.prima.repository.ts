@@ -3,13 +3,18 @@ import { IUsuarioRepository } from "@modules/usuario/domain/usuario.repository.i
 import { PrismaRepository } from "@shared/infra/database/prisma.repository";
 import { UsuarioMap } from "../mappers/usuario.map";
 import { CredenciaisUsuarioProps } from "@modules/usuario/domain/usuario.types";
+import bcrypt from 'bcrypt';
 
 class UsuarioPrismaRepository extends PrismaRepository implements IUsuarioRepository<Usuario> {
 
     async autenticar(credenciais: CredenciaisUsuarioProps): Promise<boolean> {
-        const usuarioExistente = await this.recuperarPorEmail(credenciais.email)
-        if (usuarioExistente && (credenciais.senha) === usuarioExistente.senha) { return true }
-        return false
+        const usuarioExistente = await this.recuperarPorEmail(credenciais.email);
+        if (!usuarioExistente) {return false;}
+
+        const senhaValida: boolean = await bcrypt.compare(credenciais.senha, usuarioExistente.senha);
+        if (!senhaValida)  {return false;}
+
+        return true;
     }
 
     async recuperarPorEmail(email: string): Promise<Usuario | null> {
@@ -39,13 +44,15 @@ class UsuarioPrismaRepository extends PrismaRepository implements IUsuarioReposi
     }
 
     async inserir(usuario: Usuario): Promise<Usuario> {
+        const saltRounds = parseInt(process.env.BCRYPT_SALT_ROUNDS as string, 10)
+        const senhaCriptogradada = await bcrypt.hash(usuario.senha, saltRounds)
         const usuarioInserido = await this._datasource.usuario.create(
             {
                 data: {
                     id: usuario.id,
                     nome: usuario.nome,
                     email: usuario.email,
-                    senha: usuario.senha,
+                    senha: senhaCriptogradada,
                     tipo: UsuarioMap.toTipoUsuarioPrisma(usuario.tipo)
                 }
             }

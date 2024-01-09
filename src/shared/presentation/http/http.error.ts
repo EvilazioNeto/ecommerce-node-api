@@ -28,9 +28,27 @@ class UnsupportedMediaTypeError extends HttpError {
 }
 
 
+class UnauthorizedError extends HttpError {
+    constructor( params?: {statusCode?: number, message?: string}) {
+        const { statusCode, message} = params || {};
+        super(statusCode || 401, message || '⚠️ Solicitação do Cliente Não Foi Concluída Porque Não Possui Credenciais de Autenticação Válidas para o Recurso Solicitado.');
+        this.name = 'UnauthorizedError';
+    }
+}
+
+class ForbiddenError extends HttpError {
+    constructor( params?: {statusCode?: number, message?: string}) {
+        const { statusCode, message} = params || {};
+        super(statusCode || 403, message || '⚠️ Servidor Entende a Solicitação, Mas Se Recusa a Autorizá-la.');
+        this.name = 'ForbiddenError';
+    }
+}
+
 const HttpErrors = {
     NotFoundError: NotFoundError,
-    UnsupportedMediaTypeError: UnsupportedMediaTypeError
+    UnsupportedMediaTypeError: UnsupportedMediaTypeError,
+    UnauthorizedError: UnauthorizedError,
+    ForbiddenError: ForbiddenError
 }
 
 export { HttpError, HttpErrors }

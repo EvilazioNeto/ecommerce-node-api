@@ -13,6 +13,7 @@ GET http://{{host}}:{{port}}/{{apiversion}}/categorias
 ### Inserir Uma Categoria
 POST http://{{host}}:{{port}}/{{apiversion}}/categorias
 Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMzZjkzNjljLTE1MzQtNDNmNi05YzBlLTYyZWM1NDlkYWE4OCIsIm5vbWUiOiJFdmlsYXppbyIsImVtYWlsIjoiZXZpbGF6aW9AbWFpbC5jb20iLCJ0aXBvIjoiQURNSU5JU1RSQURPUiIsImlhdCI6MTcwNDc2OTc3NiwiZXhwIjoxNzA0NzczMzc2fQ.fY3OU-OinF3yN2x2GFx6njwi0U39AEJjsWfsGL0EFEY
 
 {
     "nome":"Eletrônicos"
@@ -20,7 +21,7 @@ Content-type: application/json
 
 ### Atualizar Categoria
 PUT http://{{host}}:{{port}}/{{apiversion}}/categorias/7f40c054-280b-4281-949a-cef099fadc5c
-Content-type: application/json 
+Content-type: application/json
 
 {
     "id": "7f40c054-280b-4281-949a-cef099fadc5c",
